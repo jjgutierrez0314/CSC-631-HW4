@@ -67,16 +67,15 @@ public class Register : MonoBehaviour {
 		}
 	}
 	
-	public RequestLogin requestRegister(string username, string password) {
-		//TO DO: implement
-		RequestLogin request = new RequestLogin();
+	public RequestRegister requestRegister(string username, string password) {
+		RequestRegister request = new RequestRegister();
 		request.send(username, password);
 		return request;
 	}
 
 	public void ResponseRegister(ExtendedEventArgs eventArgs) {
 		//TO DO: implement
-		ResponseLoginEventArgs args = eventArgs as ResponseLoginEventArgs;
+		ResponseRegisterEventArgs args = eventArgs as ResponseRegisterEventArgs;
 		if (args.status == 0) {
 			Constants.USER_ID = args.user_id;
 			Debug.Log ("Successful Register response : " + args.ToString());
