@@ -21,7 +21,7 @@ public class Register : MonoBehaviour {
 		mainObject = GameObject.Find("MainObject");
 		cManager = mainObject.GetComponent<ConnectionManager>();
 		msgQueue = mainObject.GetComponent<MessageQueue> ();
-		msgQueue.AddCallback(Constants.SMSG_AUTH, ResponseRegister);
+		msgQueue.AddCallback(Constants.SMSG_REGISTER, ResponseRegister);
 	}
 	
 	void OnGUI() {

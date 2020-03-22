@@ -24,7 +24,7 @@ public class RequestRegister extends GameRequest {
     //List of Players
     ArrayList<Player> playerList = new ArrayList<Player>();
     Player admin = new Player(100, "ilmi", "1111", (short) 1, 1000);
-
+        
     public RequestRegister() {
         responses.add(responseRegister = new ResponseRegister());
     }
@@ -51,6 +51,8 @@ public class RequestRegister extends GameRequest {
                         Player player = new Player(100, user_id, password, (short) 1, 1000);
                         playerList.add(player);
                         Log.printf("'%s' is successfully registered!", user_id);
+                        Log.printf(player.toString());
+                        break;
                     }
                 }
             }   

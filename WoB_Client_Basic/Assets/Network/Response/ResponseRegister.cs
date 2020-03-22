@@ -11,7 +11,7 @@ public class ResponseRegisterEventArgs : ExtendedEventArgs
 	//public string last_logout { get; set; }
 	
 	public ResponseRegisterEventArgs() {
-		event_id = Constants.SMSG_AUTH;
+		event_id = Constants.SMSG_REGISTER;
 	}
 }
 

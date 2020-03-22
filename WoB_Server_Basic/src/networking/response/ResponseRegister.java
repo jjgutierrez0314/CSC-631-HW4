@@ -11,19 +11,19 @@ public class ResponseRegister extends GameResponse {
     private Player player;
 
     public ResponseRegister() {
-        responseCode = Constants.SMSG_AUTH;
+        responseCode = Constants.SMSG_REGISTER;
     }
 
     @Override
     public byte[] constructResponseInBytes() {
         GamePacket packet = new GamePacket(responseCode);
         packet.addShort16(status);
-        if (status == 0) {
-            packet.addInt32(player.getID());
-            packet.addString(player.getUsername());
-            packet.addInt32(player.getMoney());
-            packet.addShort16(player.getLevel());
-        }
+        // if (status == 0) {
+        //     packet.addInt32(player.getID());
+        //     packet.addString(player.getUsername());
+        //     packet.addInt32(player.getMoney());
+        //     packet.addShort16(player.getLevel());
+        // }
         return packet.getBytes();
     }
 

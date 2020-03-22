@@ -14,6 +14,8 @@ public class Constants {
     public final static short SMSG_PLAYERS = 203;
     public static final short CMSG_TEST = 104;
     public static final short SMSG_TEST = 204;
+    public static final short CMSG_REGISTER = 105;
+    public static final short SMSG_REGISTER = 205;
 
     // Other
     public static final String CLIENT_VERSION = "1.00";

@@ -22,6 +22,7 @@ public class GameRequestTable {
     public static void init() {
         // Populate the table using request codes and class names
         add(Constants.CMSG_AUTH, "RequestLogin");
+        add(Constants.CMSG_REGISTER, "RequestRegister");
         add(Constants.CMSG_HEARTBEAT, "RequestHeartbeat");
         add(Constants.CMSG_PLAYERS, "RequestPlayers");
     }

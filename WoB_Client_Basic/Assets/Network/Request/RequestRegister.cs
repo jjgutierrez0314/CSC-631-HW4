@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RequestRegister : NetworkRequest {
     public RequestRegister () {
-        request_id = Constants.CMSG_AUTH;
+        request_id = Constants.CMSG_REGISTER;
     }
 
     public void send (string username, string password) {

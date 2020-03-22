@@ -12,6 +12,7 @@ public class NetworkResponseTable {
 		add(Constants.SMSG_AUTH, "ResponseLogin");//201
 		add(Constants.SMSG_PLAYERS, "ResponsePlayers");//203
 		add(Constants.SMSG_TEST, "ResponseTest");//204
+		add(Constants.SMSG_REGISTER, "ResponseRegister");//205
 	}
 	
 	public static void add(short response_id, string name) {
