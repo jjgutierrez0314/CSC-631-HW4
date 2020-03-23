@@ -2,13 +2,12 @@ package networking.response;
 
 // Other Imports
 import metadata.Constants;
-import model.Player;
+// import model.Player;
 import utility.GamePacket;
 
 public class ResponseRegister extends GameResponse {
 
     private short status;
-    private Player player;
 
     public ResponseRegister() {
         responseCode = Constants.SMSG_REGISTER;
@@ -29,9 +28,5 @@ public class ResponseRegister extends GameResponse {
 
     public void setStatus(short status) {
         this.status = status;
-    }
-
-    public void setPlayer(Player player) {
-        this.player = player;
     }
 }

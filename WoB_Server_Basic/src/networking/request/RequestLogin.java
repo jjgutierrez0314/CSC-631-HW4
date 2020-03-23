@@ -12,6 +12,18 @@ import networking.response.ResponseLogin;
 import utility.DataReader;
 import utility.Log;
 
+//SQL
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.PreparedStatement;
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  * The RequestLogin class authenticates the user information to log in. Other
  * tasks as part of the login process lies here as well.
@@ -48,10 +60,36 @@ public class RequestLogin extends GameRequest {
                 //player = UsersDAO.getUserFromDbIfCredentialsAreValid(user_id, password);
                 // Let's make a fake user for showing a connection demo -- without proper DB set tup.
                 Log.printf("User '%s' entered passwd '%s'", user_id, password);
-                if(user_id.equals("ilmi") && password.equals("1111"))
-                    player = new Player(100, "ilmi", "1111", (short) 1, 1000);
-                else
-                    player = null;
+
+              //SQL
+                String url = "jdbc:mysql://wanderdb.c4p7z07xl4sc.us-east-1.rds.amazonaws.com:3306";
+                String user = "root";
+                String sqlpw = "awesomeganbold";
+                String select = "SELECT * FROM wander.Users;";
+                Boolean checkUser = false;
+            
+                try (Connection con = DriverManager.getConnection(url, user, sqlpw);
+                    PreparedStatement sql_statement = con.prepareStatement(select);
+                        
+                        ResultSet result = sql_statement.executeQuery()) {
+
+                        while(result.next() && !checkUser){
+                            String username = result.getString("username");
+                            String pw = result.getString("password");
+
+                            System.out.println(username + " " + pw + " " + "Login user: " + user_id + " " + password);
+                            if(user_id.equals(username) && password.equals(pw)){
+                                player = new Player(100, user_id, password, (short) 1, 1000);
+                                System.out.println("player created...");
+                                con.close();
+                                checkUser = true;
+                            }
+                            else
+                                player = null;  
+                        }
+                } catch (SQLException ex) {
+                    System.out.println("error");     
+                }
             }
             if (player == null) {
                 responseLogin.setStatus((short) 1); // User info is incorrect

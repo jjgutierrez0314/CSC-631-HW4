@@ -20,6 +20,8 @@ import model.Player;
 import utility.ConfFileParser;
 import utility.Log;
 
+
+
 /**
  * The GameServer class serves as the main module that runs the server.
  * Incoming connection requests are established and redirected to be managed
@@ -59,6 +61,7 @@ public class GameServer {
         initialize();
         // Thread Pool for Clients
         clientThreadPool = Executors.newCachedThreadPool();
+
     }
 
     public static GameServer getInstance() {

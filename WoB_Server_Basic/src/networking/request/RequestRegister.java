@@ -13,6 +13,13 @@ import utility.DataReader;
 import utility.Log; 
 import java.util.ArrayList;
 
+//SQL
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class RequestRegister extends GameRequest {
     // Data
     private String version;
@@ -21,9 +28,6 @@ public class RequestRegister extends GameRequest {
     // Responses
     private ResponseRegister responseRegister;
 
-    //List of Players
-    ArrayList<Player> playerList = new ArrayList<Player>();
-    Player admin = new Player(100, "ilmi", "1111", (short) 1, 1000);
         
     public RequestRegister() {
         responses.add(responseRegister = new ResponseRegister());
@@ -38,24 +42,59 @@ public class RequestRegister extends GameRequest {
 
     @Override
     public void doBusiness() throws Exception {
-        if(!playerList.contains(admin)) {
-            playerList.add(admin);
-        }
-        if (version.compareTo(Constants.CLIENT_VERSION) >= 0) {
-            if (!user_id.isEmpty() && !password.isEmpty()) {
-                Log.printf("User '%s' entered passwd '%s'", user_id, password);
-                for(int i = 0; i < playerList.size(); i++) {
-                    if(playerList.get(i).getUsername().equals(user_id)) {
-                        Log.printf("Username '%s' is already taken", user_id);
-                    } else {
-                        Player player = new Player(100, user_id, password, (short) 1, 1000);
-                        playerList.add(player);
-                        Log.printf("'%s' is successfully registered!", user_id);
-                        Log.printf(player.toString());
-                        break;
-                    }
-                }
-            }   
-        }
+        
+         //SQL
+         String url = "jdbc:mysql://wanderdb.c4p7z07xl4sc.us-east-1.rds.amazonaws.com:3306";
+         String user = "root";
+         String sqlpw = "awesomeganbold";
+         String select = "SELECT * FROM wander.Users;";
+        
+         Boolean checkUser = false;
+     
+         try (Connection con = DriverManager.getConnection(url, user, sqlpw);
+             PreparedStatement sql_statement = con.prepareStatement(select);
+                 
+                 ResultSet result = sql_statement.executeQuery()) {
+
+                 while(result.next() && !checkUser){
+                     //get data from db
+                     String username = result.getString("username");
+                     if(user_id.equals(username)){                      
+                         System.out.println("UserName: " + user_id + " is taken...");
+                         checkUser = true;
+                     }
+                 }
+         } catch (SQLException ex) {
+             System.out.println("error");     
+         }
+
+
+         if(!checkUser){
+          try(
+
+            Connection connect = DriverManager.getConnection(url, user, sqlpw);
+            PreparedStatement sql_statement = connect.prepareStatement( "insert into  wander.Users values(default,?,?)")){     
+                
+                sql_statement.setString(1,user_id);
+                sql_statement.setString(2,password);
+                sql_statement.executeUpdate();
+                connect.close();
+                
+               Log.printf("'%s' is successfully registered!", user_id);
+               responseRegister.setStatus((short) 0);
+                        
+               
+            }catch (SQLException ex) {
+                System.out.println("error");     
+            }
+            
+            
+            
+            
+          
+            //  PreparedStatement add = con.prepareStatement(addUser);
+            //  add.executeQuery();
+         }
+
     }
 }

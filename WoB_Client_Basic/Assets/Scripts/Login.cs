@@ -89,6 +89,7 @@ public class Login : MonoBehaviour {
 			EditorUtility.DisplayDialog ("Login Successful", "You have successfully logged in.\nClick Ok to continue execution and see responses on console", "Ok");
             SceneManager.LoadScene("TestScene");
 		} else {
+			EditorUtility.DisplayDialog ("Login failed", "Please check your username and password.\n ", "Ok");
 			Debug.Log("Login Failed");
 		}
 	}

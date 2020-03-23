@@ -83,6 +83,7 @@ public class Register : MonoBehaviour {
             SceneManager.LoadScene("Login");
 		} else {
 			Debug.Log("Registration Failed");
+			EditorUtility.DisplayDialog ("Registration Failed", "User name is taken.", "Ok");
 		}
 	}
 	
