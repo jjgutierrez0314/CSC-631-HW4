@@ -1,18 +1,43 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
-public class ResponseMovement : MonoBehaviour
+public class ResponseMovementEventArgs : ExtendedEventArgs 
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+   public float x {get; set;}
+   public float y {get; set;}
+   public float z {get; set;}
+
+   public ResponseMovementEventArgs(){
+       event_id = Constants.SMSG_MOVEMENT;
+   }
+}
+
+
+public class ResponseMovement : NetworkResponse{
+
+    private float x;
+    private float y;
+    private float z;
+
+    public ResponseMovement(){
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public override void parse(){
+        x = DataReader.ReadFloat(dataStream);
+        y = DataReader.ReadFloat(dataStream);   
+        z = DataReader.ReadFloat(dataStream);
     }
+
+
+    public override ExtendedEventArgs process(){
+        ResponseMovementEventArgs args = null;
+        args = new ResponseMovementEventArgs();
+        args.x = x;
+        args.y = y;
+        args.z = z;
+    
+        return args;
+    }
+        
 }

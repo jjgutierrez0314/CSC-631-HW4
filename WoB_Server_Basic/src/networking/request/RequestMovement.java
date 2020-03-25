@@ -8,14 +8,13 @@ import core.GameClient;
 import core.GameServer;
 import metadata.Constants;
 import model.Player;
-import networking.response.ResponseLogin;
 import networking.response.ResponseMovement;
 import utility.DataReader;
 import utility.Log;
 
 public class RequestMovement extends GameRequest {
 
-    private int x;
+    private String x;
     private int y;
     private int z;
 
@@ -27,16 +26,17 @@ public class RequestMovement extends GameRequest {
 
     @Override
     public void parse() throws IOException {
-        x = DataReader.readInt(dataInput);
+        x = DataReader.readString(dataInput);
         y = DataReader.readInt(dataInput);
         z = DataReader.readInt(dataInput);
     }
 
     @Override
     public void doBusiness() throws Exception {
-        Player player = new Player(x, y, z);
-        client.setPlayer(player);
-        responseMovement.setPlayer(player);
-        Log.printf("Set player's coordinates");
+        Log.printf("x: ", x);
+        // Player player = new Player(x, y, z);
+        // client.setPlayer(player);
+        // responseMovement.setPlayer(player);
+        // Log.printf("(player.getX()");
     }
 }
