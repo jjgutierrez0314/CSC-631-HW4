@@ -16,6 +16,7 @@ public class Player {
     private short level;
     private int money;
     private GameClient client; // References GameClient instance
+    private int x,y,z;
 
     public Player(int player_id) {
         this.player_id = player_id;
@@ -28,6 +29,37 @@ public class Player {
         this.level = level;
         this.money = money;
     }
+
+    public Player(int x, int y, int z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+
+    public int getX () {
+        return x;
+    }
+
+    public int setX (int x) {
+        return this.x = x;
+    }
+
+    public int getY () {
+        return y;
+    }
+
+    public int setY (int y) {
+        return this.y = y;
+    }
+
+    public int getZ () {
+        return z;
+    }
+
+    public int setZ (int z) {
+        return this.z = z;
+    }
+
 
     public int getID() {
         return player_id;
