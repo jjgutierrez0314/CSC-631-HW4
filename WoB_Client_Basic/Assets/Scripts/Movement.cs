@@ -13,10 +13,10 @@ public class Movement : MonoBehaviour {
     private MessageQueue msgQueue;
 
     void Awake () {
-        mainObject = GameObject.Find ("Cube");
+        mainObject = GameObject.Find ("MainObject");
         cManager = mainObject.GetComponent<ConnectionManager> ();
         msgQueue = mainObject.GetComponent<MessageQueue> ();
-       // msgQueue.AddCallback (Constants.SMSG_MOVEMENT, responseMovement);
+        msgQueue.AddCallback (Constants.SMSG_MOVEMENT, responseMovement);
     }
 
     void Start () {
@@ -37,8 +37,6 @@ public class Movement : MonoBehaviour {
             Debug.Log(transform.position.x);
             cManager.send (requestMovement(x, y, z));
         }
-        
-      // cManager.send (requestMovement(x, y, z));
     }
 
     public RequestMovement requestMovement (float x, float y, float z) {

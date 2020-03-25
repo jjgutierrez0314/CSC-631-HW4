@@ -9,10 +9,8 @@ public class RequestMovement : NetworkRequest {
 
     public void send(float x, float y, float z){
         packet = new GamePacket (request_id);
-         packet.addString("jj");
-          packet.addString("jj");
-           packet.addString("jj");
-        // packet.addInt((int)y);
-        // packet.addInt((int)z);
+         packet.addInt32((int)x);
+         packet.addInt32((int)y);
+         packet.addInt32((int)z);
     }
 }

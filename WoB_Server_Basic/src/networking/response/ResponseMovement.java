@@ -15,7 +15,7 @@ public class ResponseMovement extends GameResponse {
     private Player player;
 
     public ResponseMovement() {
-        responseCode = Constants.SMSG_AUTH;
+        responseCode = Constants.SMSG_MOVEMENT;
     }
 
     @Override

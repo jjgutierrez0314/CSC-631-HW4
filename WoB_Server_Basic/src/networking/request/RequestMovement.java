@@ -14,7 +14,7 @@ import utility.Log;
 
 public class RequestMovement extends GameRequest {
 
-    private String x;
+    private int x;
     private int y;
     private int z;
 
@@ -26,17 +26,15 @@ public class RequestMovement extends GameRequest {
 
     @Override
     public void parse() throws IOException {
-        x = DataReader.readString(dataInput);
+        x = DataReader.readInt(dataInput);
         y = DataReader.readInt(dataInput);
         z = DataReader.readInt(dataInput);
     }
 
     @Override
     public void doBusiness() throws Exception {
-        Log.printf("x: ", x);
-        // Player player = new Player(x, y, z);
-        // client.setPlayer(player);
-        // responseMovement.setPlayer(player);
-        // Log.printf("(player.getX()");
+        Player player = new Player(x, y, z);
+        client.setPlayer(player);
+        responseMovement.setPlayer(player);
     }
 }
