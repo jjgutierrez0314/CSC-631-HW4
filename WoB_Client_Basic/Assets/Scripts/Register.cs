@@ -9,7 +9,6 @@ public class Register : MonoBehaviour {
 	private float width = 280;
 	private float height = 100;
 	// Other
-	public Texture background;
 	private string user_id = "";
 	private string password = "";
 	private Rect windowRect;
@@ -25,8 +24,6 @@ public class Register : MonoBehaviour {
 	}
 	
 	void OnGUI() {
-		// Background
-		GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), background);
 		// Client Version Label
 		
 		// Login Interface

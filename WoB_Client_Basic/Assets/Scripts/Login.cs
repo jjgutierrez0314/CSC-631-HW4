@@ -10,7 +10,6 @@ public class Login : MonoBehaviour {
 	private float width = 280;
 	private float height = 100;
 	// Other
-	public Texture background;
 	private string user_id = "";
 	private string password = "";
 	private Rect windowRect;
@@ -33,8 +32,6 @@ public class Login : MonoBehaviour {
 	}
 	
 	void OnGUI() {
-		// Background
-		GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), background);
 		// Client Version Label
 		
 		// Login Interface
@@ -87,10 +84,10 @@ public class Login : MonoBehaviour {
 			Constants.USER_ID = args.user_id;
 			Debug.Log ("Successful Login response : " + args.ToString());
 			EditorUtility.DisplayDialog ("Login Successful", "You have successfully logged in.\nClick Ok to continue execution and see responses on console", "Ok");
-            SceneManager.LoadScene("TestScene");
+            SceneManager.LoadScene("Work");
 		} else {
-			EditorUtility.DisplayDialog ("Login failed", "Please check your username and password.\n ", "Ok");
 			Debug.Log("Login Failed");
+			EditorUtility.DisplayDialog ("Login failed", "Please check your username and password.\n ", "Ok");
 		}
 	}
 	

@@ -77,7 +77,7 @@ public class RequestLogin extends GameRequest {
                             String username = result.getString("username");
                             String pw = result.getString("password");
 
-                            System.out.println(username + " " + pw + " " + "Login user: " + user_id + " " + password);
+                            //System.out.println(username + " " + pw + " " + "Login user: " + user_id + " " + password);
                             if(user_id.equals(username) && password.equals(pw)){
                                 player = new Player(100, user_id, password, (short) 1, 1000);
                                 System.out.println("player created...");
@@ -85,12 +85,13 @@ public class RequestLogin extends GameRequest {
                                 checkUser = true;
                             }
                             else
-                                player = null;  
+                                player = null;
                         }
                 } catch (SQLException ex) {
                     System.out.println("error");     
                 }
             }
+            
             if (player == null) {
                 responseLogin.setStatus((short) 1); // User info is incorrect
                 Log.printf("User '%s' has failed to log in.", user_id);
