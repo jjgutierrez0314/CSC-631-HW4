@@ -33,6 +33,7 @@ public class Register : MonoBehaviour {
 			if (Event.current.type == EventType.KeyUp && Event.current.keyCode == KeyCode.Return) {
 				Submit();
 			}
+			
 		}
 	}
 	
@@ -45,8 +46,11 @@ public class Register : MonoBehaviour {
 		GUI.SetNextControlName("password_field");
 		password = GUI.PasswordField(new Rect(10, 100, windowRect.width - 20, 25), password, "*"[0], 25);
 		GUILayout.Space(75);
-		if (GUI.Button(new Rect(windowRect.width / 2 - 50, 135, 100, 30), "Submit")) {
+		if (GUI.Button(new Rect(windowRect.width / 2 - 110, 135, 100, 30), "Submit")) {
 			Submit();
+		}
+		if (GUI.Button(new Rect(windowRect.width / 2 +10, 135, 100, 30), "Login Page")) {
+			 SceneManager.LoadScene("Login");;
 		}
 	}
 	

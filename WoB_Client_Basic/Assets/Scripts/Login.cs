@@ -53,8 +53,11 @@ public class Login : MonoBehaviour {
 		GUI.SetNextControlName("password_field");
 		password = GUI.PasswordField(new Rect(10, 100, windowRect.width - 20, 25), password, "*"[0], 25);
 		GUILayout.Space(75);
-		if (GUI.Button(new Rect(windowRect.width / 2 - 50, 135, 100, 30), "Log In")) {
+		if (GUI.Button(new Rect(windowRect.width / 2 -110, 135, 100, 30), "Log In")) {
 			Submit();
+		}
+		if (GUI.Button(new Rect(windowRect.width / 2 +10, 135, 100, 30), "Sign Up")) {
+			 SceneManager.LoadScene("Register");;
 		}
 	}
 	
