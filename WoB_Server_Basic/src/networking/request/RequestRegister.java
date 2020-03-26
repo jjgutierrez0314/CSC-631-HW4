@@ -94,6 +94,8 @@ public class RequestRegister extends GameRequest {
           
             //  PreparedStatement add = con.prepareStatement(addUser);
             //  add.executeQuery();
+         } else {
+             responseRegister.setStatus((short) 1);
          }
 
     }

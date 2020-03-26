@@ -4,6 +4,7 @@ package networking.response;
 import metadata.Constants;
 // import model.Player;
 import utility.GamePacket;
+import utility.Log;
 
 public class ResponseRegister extends GameResponse {
 
@@ -17,12 +18,7 @@ public class ResponseRegister extends GameResponse {
     public byte[] constructResponseInBytes() {
         GamePacket packet = new GamePacket(responseCode);
         packet.addShort16(status);
-        // if (status == 0) {
-        //     packet.addInt32(player.getID());
-        //     packet.addString(player.getUsername());
-        //     packet.addInt32(player.getMoney());
-        //     packet.addShort16(player.getLevel());
-        // }
+        Log.printf("Register Server Status: " + status);
         return packet.getBytes();
     }
 

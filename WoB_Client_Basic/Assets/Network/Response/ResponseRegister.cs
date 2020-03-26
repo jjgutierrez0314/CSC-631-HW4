@@ -39,15 +39,19 @@ public class ResponseRegister : NetworkResponse {
 	}
 	
 	public override ExtendedEventArgs process() {
-		ResponseLoginEventArgs args = null;
+		ResponseRegisterEventArgs args = null;
 		if (status == 0) {
-			args = new ResponseLoginEventArgs();
+			args = new ResponseRegisterEventArgs();
 			args.status = status;
 			args.user_id = user_id;
 			args.username = username;
 			args.money = money;
 			args.level = level;
 			//args.last_logout = last_logout;
+		}
+		if (status == 1) {
+			args = new ResponseRegisterEventArgs();
+			args.status = status;
 		}
 
 		return args;

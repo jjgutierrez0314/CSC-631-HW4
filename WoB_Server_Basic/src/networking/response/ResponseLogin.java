@@ -4,6 +4,7 @@ package networking.response;
 import metadata.Constants;
 import model.Player;
 import utility.GamePacket;
+import utility.Log;
 
 /**
  * The ResponseLogin class contains information about the authentication
@@ -22,6 +23,7 @@ public class ResponseLogin extends GameResponse {
     public byte[] constructResponseInBytes() {
         GamePacket packet = new GamePacket(responseCode);
         packet.addShort16(status);
+        Log.printf("Login Server Status: " + status);
         if (status == 0) {
             packet.addInt32(player.getID());
             packet.addString(player.getUsername());

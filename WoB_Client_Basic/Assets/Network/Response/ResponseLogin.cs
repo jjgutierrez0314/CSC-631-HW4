@@ -49,6 +49,10 @@ public class ResponseLogin : NetworkResponse {
 			args.level = level;
 			args.last_logout = last_logout;
 		}
+		if(status == 1) {
+			args = new ResponseLoginEventArgs();
+			args.status = status;
+		}
 
 		return args;
 	}
