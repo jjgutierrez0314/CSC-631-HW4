@@ -36,7 +36,6 @@ public class ResponseMovement : NetworkResponse{
         args.x = x;
         args.y = y;
         args.z = z;
-    
         return args;
     }
         

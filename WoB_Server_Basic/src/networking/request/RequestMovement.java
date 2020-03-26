@@ -33,8 +33,9 @@ public class RequestMovement extends GameRequest {
 
     @Override
     public void doBusiness() throws Exception {
+        
         Player player = new Player(x, y, z);
-        client.setPlayer(player);
         responseMovement.setPlayer(player);
+
     }
 }

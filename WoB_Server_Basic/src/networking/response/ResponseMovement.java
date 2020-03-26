@@ -11,7 +11,6 @@ import utility.GamePacket;
  */
 public class ResponseMovement extends GameResponse {
 
-    private short status;
     private Player player;
 
     public ResponseMovement() {
@@ -27,9 +26,6 @@ public class ResponseMovement extends GameResponse {
         return packet.getBytes();
     }
 
-    public void setStatus(short status) {
-        this.status = status;
-    }
 
     public void setPlayer(Player player) {
         this.player = player;

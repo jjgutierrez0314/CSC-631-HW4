@@ -16,7 +16,7 @@ public class Movement : MonoBehaviour {
         mainObject = GameObject.Find ("MainObject");
         cManager = mainObject.GetComponent<ConnectionManager> ();
         msgQueue = mainObject.GetComponent<MessageQueue> ();
-        msgQueue.AddCallback (Constants.SMSG_MOVEMENT, responseMovement);
+        msgQueue.AddCallback (Constants.SMSG_MOVEMENT,responseMovement);
     }
 
     void Start () {
@@ -34,7 +34,6 @@ public class Movement : MonoBehaviour {
             z = transform.position.z;
             cachedPosition = track.position;
             transform.position = cachedPosition;
-            Debug.Log(transform.position.x);
             cManager.send (requestMovement(x, y, z));
         }
     }
@@ -47,7 +46,8 @@ public class Movement : MonoBehaviour {
 
     public void responseMovement (ExtendedEventArgs eventArgs) {
         ResponseMovementEventArgs args = eventArgs as ResponseMovementEventArgs;
-         Debug.Log("movements"); 
+        
+        Debug.Log("Response movement:" + args.x); 
        
     }
 	
