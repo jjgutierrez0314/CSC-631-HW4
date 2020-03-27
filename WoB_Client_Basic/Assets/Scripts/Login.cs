@@ -85,15 +85,19 @@ public class Login : MonoBehaviour {
 		Debug.Log ("Login Client Status: " + args.status);
 		if (args.status == 0) {
 			Constants.USER_ID = args.user_id;
+			
 			EditorUtility.DisplayDialog ("Login Successful", "You have successfully logged in.\nClick Ok to continue execution and see responses on console", "Ok");
+			
 			SceneManager.LoadScene ("Work");
 		} else {
 			Constants.USER_ID = args.user_id;
 			Debug.Log ("Login Failed");
+			
 			EditorUtility.DisplayDialog ("Login failed", "Please check your username and password.\n ", "Ok");
+			
 		}
 	}
-
+ 
 	public RequestPlayers requestPlayers () {
 		RequestPlayers request = new RequestPlayers ();
 		request.send ();

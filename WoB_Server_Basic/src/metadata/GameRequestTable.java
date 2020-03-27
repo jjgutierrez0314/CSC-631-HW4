@@ -26,6 +26,7 @@ public class GameRequestTable {
         add(Constants.CMSG_HEARTBEAT, "RequestHeartbeat");
         add(Constants.CMSG_PLAYERS, "RequestPlayers");
         add(Constants.CMSG_MOVEMENT, "RequestMovement");
+        add(Constants.CMSG_PLATFORM, "RequestPlatform");
     }
 
     /**

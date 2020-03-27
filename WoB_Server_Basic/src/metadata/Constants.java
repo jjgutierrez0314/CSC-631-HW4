@@ -18,6 +18,8 @@ public class Constants {
     public static final short SMSG_REGISTER = 205;
     public static final short CMSG_MOVEMENT = 106;
     public static final short SMSG_MOVEMENT = 206;
+    public static final short CMSG_PLATFORM = 107;
+    public static final short SMSG_PLATFORM = 207;
 
     // Other
     public static final String CLIENT_VERSION = "1.00";
