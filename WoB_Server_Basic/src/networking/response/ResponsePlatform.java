@@ -20,9 +20,7 @@ public class ResponsePlatform extends GameResponse {
     @Override
     public byte[] constructResponseInBytes() {
         GamePacket packet = new GamePacket(responseCode);
-        packet.addInt32(platform.getX());
         packet.addInt32(platform.getY());
-        packet.addInt32(platform.getZ());
         return packet.getBytes();
     }
 

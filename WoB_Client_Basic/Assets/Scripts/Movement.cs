@@ -47,7 +47,6 @@ public class Movement : MonoBehaviour {
 
     public void responseMovement (ExtendedEventArgs eventArgs) {
         ResponseMovementEventArgs args = eventArgs as ResponseMovementEventArgs;
-        Debug.Log("args.................");
     }
 	
 }

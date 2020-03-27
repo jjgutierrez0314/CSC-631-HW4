@@ -10,12 +10,14 @@ using System.Text;
 public class ConnectionManager : MonoBehaviour {
 	
 	private GameObject mainObject;
+	private GameObject elevator;
 	private TcpClient mySocket;
 	private NetworkStream theStream;
 	private bool socketReady = false;
 	
 	void Awake() {
 		mainObject = GameObject.Find("MainObject");
+		elevator = GameObject.Find("Elevator");
 	}
 	
 	// Use this for initialization

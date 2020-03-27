@@ -14,6 +14,7 @@ public class NetworkResponseTable {
 		add(Constants.SMSG_TEST, "ResponseTest");//204
 		add(Constants.SMSG_REGISTER, "ResponseRegister");//205
 		add(Constants.SMSG_MOVEMENT, "ResponseMovement");//206
+		add(Constants.SMSG_PLATFORM, "ResponsePlatform");//207
 	}
 	
 	public static void add(short response_id, string name) {

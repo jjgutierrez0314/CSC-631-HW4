@@ -10,27 +10,15 @@ import core.GameClient;
  */
 public class Platform {
     private int platform_id;
-    private int x,y,z;
+    private int y;
 
-    public Platform(int platform_id) {
-        this.platform_id = platform_id;
-    }
+    // public Platform(int platform_id) {
+    //     this.platform_id = platform_id;
+    // }
 
-
-    public Platform(int x, int y, int z) {
-        this.x = x;
+    public Platform(int y) {
         this.y = y;
-        this.z = z;
     }
-
-    public int getX () {
-        return x;
-    }
-
-    public int setX (int x) {
-        return this.x = x;
-    }
-
     public int getY () {
         return y;
     }
@@ -39,22 +27,13 @@ public class Platform {
         return this.y = y;
     }
 
-    public int getZ () {
-        return z;
-    }
+    // public int getID() {
+    //     return platform_id;
+    // }
 
-    public int setZ (int z) {
-        return this.z = z;
-    }
-
-
-    public int getID() {
-        return platform_id;
-    }
-
-    public int setID(int platform_id) {
-        return this.platform_id = platform_id;
-    }
+    // public int setID(int platform_id) {
+    //     return this.platform_id = platform_id;
+    // }
 
    
     // public GameClient getClient() {
@@ -68,10 +47,10 @@ public class Platform {
     @Override
     public String toString() {
         return "Platform{" +
-                "platform_id=" + platform_id +
-                ", x ='" + x + '\'' +
+                // "platform_id=" + platform_id +
+                // ", x ='" + x + '\'' +
                 ", y ='" + y + '\'' +
-                ", z =" + z +
+                // ", z =" + z +
                 '}';
     }
 }
