@@ -23,7 +23,7 @@ public class ResponseLogin extends GameResponse {
     public byte[] constructResponseInBytes() {
         GamePacket packet = new GamePacket(responseCode);
         packet.addShort16(status);
-        Log.printf("Login Server Status: " + status);
+        Log.printf("Server ResponseLogin has been sent to Client");
         if (status == 0) {
             packet.addInt32(player.getID());
             packet.addString(player.getUsername());

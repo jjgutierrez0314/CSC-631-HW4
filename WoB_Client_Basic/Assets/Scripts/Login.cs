@@ -1,6 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Login : MonoBehaviour {
 
@@ -63,6 +64,7 @@ public class Login : MonoBehaviour {
 	public void Submit () {
 		user_id = user_id.Trim ();
 		password = password.Trim ();
+		Debug.Log ("Client RequestLogin has been sent to Server");
 		if (user_id.Length == 0) {
 			Debug.Log ("User ID Required");
 			GUI.FocusControl ("username_field");

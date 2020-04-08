@@ -4,6 +4,7 @@ package networking.response;
 import metadata.Constants;
 import model.Player;
 import utility.GamePacket;
+import utility.Log;
 
 /**
  * The ResponseLogin class contains information about the authentication
@@ -23,6 +24,7 @@ public class ResponseMovement extends GameResponse {
         packet.addInt32(player.getX());
         packet.addInt32(player.getY());
         packet.addInt32(player.getZ());
+        Log.printf("Server ResponseMovement has been sent to Client");
         return packet.getBytes();
     }
 

@@ -34,6 +34,7 @@ public class Movement : MonoBehaviour {
             z = transform.position.z;
             cachedPosition = track.position;
             transform.position = cachedPosition;
+            Debug.Log ("Client RequestMovement has been sent to Server");
             cManager.send (requestMovement(x, y, z));
            
         }

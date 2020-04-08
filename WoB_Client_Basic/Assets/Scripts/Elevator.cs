@@ -43,6 +43,7 @@ public class Elevator : MonoBehaviour {
                 y = transform.position.y;
                 cachedPosition = track.position;
                 transform.position = cachedPosition;
+                Debug.Log ("Client RequestPlatform has been sent to Server");
                 cManager.send(requestPlatform(y));
             }
         } else {
@@ -51,6 +52,7 @@ public class Elevator : MonoBehaviour {
                 y = transform.position.y;
                 cachedPosition = track.position;
                 transform.position = cachedPosition;
+                Debug.Log ("Client RequestPlatform has been sent to Server");
                 cManager.send(requestPlatform(y));
             }
         }

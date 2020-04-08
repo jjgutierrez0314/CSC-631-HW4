@@ -55,6 +55,7 @@ public class Register : MonoBehaviour {
 	public void Submit () {
 		user_id = user_id.Trim ();
 		password = password.Trim ();
+		Debug.Log ("Client RequestRegister has been sent to Server");
 		if (user_id.Length == 0) {
 			Debug.Log ("User ID Required");
 			GUI.FocusControl ("username_field");

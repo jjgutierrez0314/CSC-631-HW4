@@ -4,6 +4,7 @@ package networking.response;
 import metadata.Constants;
 import model.Platform;
 import utility.GamePacket;
+import utility.Log;
 
 /**
  * The ResponseLogin class contains information about the authentication
@@ -21,6 +22,7 @@ public class ResponsePlatform extends GameResponse {
     public byte[] constructResponseInBytes() {
         GamePacket packet = new GamePacket(responseCode);
         packet.addInt32(platform.getY());
+        Log.printf("Server ResponsePlatform has been sent to Client");
         return packet.getBytes();
     }
 

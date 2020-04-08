@@ -18,7 +18,7 @@ public class ResponseRegister extends GameResponse {
     public byte[] constructResponseInBytes() {
         GamePacket packet = new GamePacket(responseCode);
         packet.addShort16(status);
-        Log.printf("Register Server Status: " + status);
+        Log.printf("Server ResponseRegister has been sent to Client");
         return packet.getBytes();
     }
 
